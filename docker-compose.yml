@@ -1,0 +1,48 @@
+version: '3.1'
+
+services:
+
+  eureka:
+    container_name: "eureka"
+    image: trcklst/eureka:1.0.0
+    environment:
+      SERVER_PORT: 8761
+      SPRING_PROFILE: default
+    ports:
+      - "8761:8761"
+
+  authentication:
+    container_name: "authentication"
+    image: trcklst/authentication:1.0.0
+    environment:
+      SERVER_PORT: 8080
+      SPRING_PROFILE: docker
+    ports:
+      - "8080:8080"
+    depends_on:
+      - user_db
+      - eureka
+
+  zuul-server:
+    container_name: "zuul-server"
+    image: trcklst/zuul:1.0.0
+    environment:
+      SERVER_PORT: 8888
+      SPRING_PROFILE: docker
+    ports:
+      - "8888:8888"
+    depends_on:
+      - eureka
+
+  user_db:
+    container_name: "user_db"
+    restart: always
+    image: mongo
+    environment:
+      MONGO_INITDB_DATABASE: user
+      MONGO_INITDB_ROOT_USERNAME: user
+      MONGO_INITDB_ROOT_PASSWORD: password
+    volumes:
+      - ./mongo-volume:/data/db
+    ports:
+      - "27017:27017"
