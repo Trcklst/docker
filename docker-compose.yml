@@ -23,6 +23,18 @@ services:
       - user_db
       - eureka
 
+  register:
+    container_name: "register"
+    image: trcklst/register:1.0.0
+    environment:
+      SERVER_PORT: 8070
+      SPRING_PROFILE: docker
+    ports:
+      - "8070:8070"
+    depends_on:
+      - user_db
+      - eureka
+
   zuul-server:
     container_name: "zuul-server"
     image: trcklst/zuul:1.0.0
