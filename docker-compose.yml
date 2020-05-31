@@ -20,7 +20,7 @@ services:
     ports:
       - "8082:8082"
     depends_on:
-      - user_db
+      - subscription_db
       - eureka
 
   authentication:
@@ -37,7 +37,7 @@ services:
 
   register:
     container_name: "register"
-    image: trcklst/register:1.0.0
+    image: trcklst/register:0.0.1-SNAPSHOT
     environment:
       SERVER_PORT: 8070
       SPRING_PROFILE: docker
@@ -49,7 +49,7 @@ services:
 
   zuul-server:
     container_name: "zuul-server"
-    image: trcklst/zuul:1.0.0
+    image: trcklst/zuul:0.0.1-SNAPSHOT
     environment:
       SERVER_PORT: 8888
       SPRING_PROFILE: docker
@@ -67,6 +67,19 @@ services:
       MONGO_INITDB_ROOT_USERNAME: user
       MONGO_INITDB_ROOT_PASSWORD: password
     volumes:
-      - ./mongo-volume:/data/db
+      - ./mongo-volume/user:/data/db
     ports:
       - "27017:27017"
+
+  subscription_db:
+    container_name: "subscription_db"
+    restart: always
+    image: mongo
+    environment:
+      MONGO_INITDB_DATABASE: subscription
+      MONGO_INITDB_ROOT_USERNAME: user
+      MONGO_INITDB_ROOT_PASSWORD: password
+    volumes:
+      - ./mongo-volume/subscription:/data/db
+    ports:
+      - "27018:27018"
