@@ -47,6 +47,17 @@ services:
       - user_db
       - eureka
 
+  youtube-search:
+    container_name: "youtube-search"
+    image: trcklst/youtube-search:0.0.1-SNAPSHOT
+    environment:
+      SERVER_PORT: 8010
+      SPRING_PROFILE: docker
+    ports:
+      - "8010:8010"
+    depends_on:
+      - eureka
+
   zuul-server:
     container_name: "zuul-server"
     image: trcklst/zuul:0.0.1-SNAPSHOT
