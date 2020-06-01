@@ -11,9 +11,9 @@ services:
     ports:
       - "8761:8761"
 
-  get-subscription:
-    container_name: "get-subscription"
-    image: trcklst/get-subscription:0.0.1-SNAPSHOT
+  subscription:
+    container_name: "subscription"
+    image: trcklst/subscription:0.0.1-SNAPSHOT
     environment:
       SERVER_PORT: 8082
       SPRING_PROFILE: docker
