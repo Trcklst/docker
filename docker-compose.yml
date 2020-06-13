@@ -15,10 +15,10 @@ services:
     container_name: "subscription"
     image: trcklst/subscription:0.0.1-SNAPSHOT
     environment:
-      SERVER_PORT: 8082
+      SERVER_PORT: 8060
       SPRING_PROFILE: docker
     ports:
-      - "8082:8082"
+      - "8060:8060"
     depends_on:
       - subscription_db
       - eureka
@@ -86,6 +86,7 @@ services:
     container_name: "subscription_db"
     restart: always
     image: mongo
+    command: mongod --port 27018
     environment:
       MONGO_INITDB_DATABASE: subscription
       MONGO_INITDB_ROOT_USERNAME: user
