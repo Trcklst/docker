@@ -1,3 +1,7 @@
+#############################################################################
+#############################################################################
+################ YOUTUBE SEARCH #############################################
+
 POST http://localhost:8888/api/youtube/search
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJ1c2VyMkBnbWFpbC5jb20iLCJzY29wZSI6WyJhbGwiXSwic3Vic2NyaXB0aW9uIjpudWxsLCJleHAiOjE1OTEwNjU3MzIsInVzZXJJZCI6MSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImFhNTlmYWE1LTBkNjktNGNiNi1iYzMwLWIxOGM1MjU3MDI2MiIsImNsaWVudF9pZCI6InRyY2tsc3QifQ.SGjDXDGsk5_8zXnf-waCTy9CAQDhkd_PDeJF4lWB7WU
@@ -6,7 +10,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJ1c
    "query": "l",
    "itemsNumber": "10"
 }
-###
+
+#############################################################################
+#############################################################################
+################ REGISTER ###################################################
+
 POST http://localhost:8888/api/register
 Content-Type: application/json
 
@@ -15,7 +23,10 @@ Content-Type: application/json
   "password": "user"
 }
 
-###
+#############################################################################
+#############################################################################
+################ AUTH #######################################################
+
 POST http://localhost:8888/oauth/token
 Content-Type: application/x-www-form-urlencoded
 Authorization: Basic trcklst secret
@@ -26,8 +37,11 @@ password=user&username=user2@gmail.com&grant_type=password
 POST http://localhost:8888/oauth/check_token?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJ1c2VyMkBnbWFpbC5jb20iLCJzY29wZSI6WyJhbGwiXSwic3Vic2NyaXB0aW9uIjpudWxsLCJleHAiOjE1OTEwMDQ3MTMsInVzZXJJZCI6MSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6IjIzODMzY2I1LTczZTEtNDc4Yy04ZjI5LTkxYzMzMzBkZjdiOSIsImNsaWVudF9pZCI6InRyY2tsc3QifQ.22Fb5H-MFZi4QL8VhlcelKDODuO0tx_nRVcj_FGh0jc
 Content-Type: application/json
 
-###
-POST http://localhost:8060/api/subscription
+#############################################################################
+#############################################################################
+################ SUBSCRIPTION ###############################################
+
+POST http://localhost:8888/api/subscription
 Content-Type: application/json
 
 {
@@ -40,3 +54,93 @@ Content-Type: application/json
   },
   "subscriptionType": "PRO"
 }
+
+#############################################################################
+#############################################################################
+################ TRACK STREAM ###############################################
+
+GET http://localhost:8888/stream/5edd4d1952cb0100a31f1a3b/0ThZIgyAnJQ
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJ1c2VyMkBnbWFpbC5jb20iLCJzY29wZSI6WyJhbGwiXSwic3Vic2NyaXB0aW9uIjpudWxsLCJleHAiOjE1OTI0NjY2ODIsInVzZXJJZCI6MSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImI4ZmNiOGQzLWE3ZjctNDNjZS1iNzkzLWE5OWQwNmVjOTJkMiIsImNsaWVudF9pZCI6InRyY2tsc3QifQ.XczJ-kxkt37uCL7nDl8Q5sn2vv6m6CtlAZ9zgmv4DJQ
+
+#############################################################################
+#############################################################################
+################ TRACK UPLOAD ###############################################
+
+POST http://localhost:8888/upload/Gl9GtO_vQxw
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJ1c2VyMkBnbWFpbC5jb20iLCJzY29wZSI6WyJhbGwiXSwic3Vic2NyaXB0aW9uIjpudWxsLCJleHAiOjE1OTI0NjY2ODIsInVzZXJJZCI6MSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImI4ZmNiOGQzLWE3ZjctNDNjZS1iNzkzLWE5OWQwNmVjOTJkMiIsImNsaWVudF9pZCI6InRyY2tsc3QifQ.XczJ-kxkt37uCL7nDl8Q5sn2vv6m6CtlAZ9zgmv4DJQ
+
+#############################################################################
+#############################################################################
+################ PARTY ######################################################
+
+### Create
+POST http://localhost:8888/party
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJ1c2VyMkBnbWFpbC5jb20iLCJzY29wZSI6WyJhbGwiXSwic3Vic2NyaXB0aW9uIjpudWxsLCJleHAiOjE1OTI0Njc2MzAsInVzZXJJZCI6MSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImY5YWIzMjZlLWVlNmYtNGJjYi1iMzMzLTA4N2NmNWNhZTkyMiIsImNsaWVudF9pZCI6InRyY2tsc3QifQ.O1KLvaTUIGSyWw_i8PCeoMxsyQOwCXjuYpf4S8ZqoG8
+
+{
+  "name": "Birthday"
+}
+
+### GET
+GET http://localhost:8888/party/5ee202b270ef5e004d73602e
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJ1c2VyMkBnbWFpbC5jb20iLCJzY29wZSI6WyJhbGwiXSwic3Vic2NyaXB0aW9uIjpudWxsLCJleHAiOjE1OTI0NjY2ODIsInVzZXJJZCI6MSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImI4ZmNiOGQzLWE3ZjctNDNjZS1iNzkzLWE5OWQwNmVjOTJkMiIsImNsaWVudF9pZCI6InRyY2tsc3QifQ.XczJ-kxkt37uCL7nDl8Q5sn2vv6m6CtlAZ9zgmv4DJQ
+
+### Delete
+DELETE http://localhost:8888/party/5ee5051ce5dc0a008488c8fe
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Njk2OSwicm9sZSI6MX0.bB7OfYgkR4Nkpzt-Al2B2CXPomKlrk1uyeVTN-2iM6M
+
+
+### Edit
+PUT http://localhost:8888/party/5ee54f11138d47002f10b52f
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Njk2OSwicm9sZSI6MX0.bB7OfYgkR4Nkpzt-Al2B2CXPomKlrk1uyeVTN-2iM6M
+
+{
+  "name": "QSDQSD",
+  "limited": true
+}
+
+### Join
+PATCH http://localhost:8888/party/5ee54f11138d47002f10b52f/join
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Njk2OSwicm9sZSI6MX0.bB7OfYgkR4Nkpzt-Al2B2CXPomKlrk1uyeVTN-2iM6M
+
+### leave
+PATCH http://localhost:8888/party/5ee54f11138d47002f10b52f/leave
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Njk2OSwicm9sZSI6MX0.bB7OfYgkR4Nkpzt-Al2B2CXPomKlrk1uyeVTN-2iM6M
+
+### add track
+POST http://localhost:8888/party/5ee54f11138d47002f10b52f/add-track
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Njk2OSwicm9sZSI6MX0.bB7OfYgkR4Nkpzt-Al2B2CXPomKlrk1uyeVTN-2iM6M
+
+{
+  "id": "i-o50WHxjj0",
+  "name": "Booba - Cavaliero"
+}
+
+### Vote
+PATCH http://localhost:8888/party/5ee54f11138d47002f10b52f/vote-track/w0BPaY6_9hs
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Njk2OSwicm9sZSI6MX0.bB7OfYgkR4Nkpzt-Al2B2CXPomKlrk1uyeVTN-2iM6M
+
+### Next-track
+PUT http://localhost:8888/party/5ee54f11138d47002f10b52f/next-track
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Njk2OSwicm9sZSI6MX0.bB7OfYgkR4Nkpzt-Al2B2CXPomKlrk1uyeVTN-2iM6M
+
+### Pause
+PATCH http://localhost:8888/party/5ee54f11138d47002f10b52f/pause
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Njk2OSwicm9sZSI6MX0.bB7OfYgkR4Nkpzt-Al2B2CXPomKlrk1uyeVTN-2iM6M
+
+### Play
+PATCH http://localhost:8888/party/5ee54f11138d47002f10b52f/play
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Njk2OSwicm9sZSI6MX0.bB7OfYgkR4Nkpzt-Al2B2CXPomKlrk1uyeVTN-2iM6M

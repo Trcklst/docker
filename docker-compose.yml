@@ -11,6 +11,62 @@ services:
     ports:
       - "8761:8761"
 
+  rabbitmq:
+    container_name: "rabbitmq"
+    image: 'rabbitmq:3.6-management-alpine'
+    ports:
+      # The standard AMQP protocol port
+      - '5672:5672'
+      # HTTP management UI
+      - '15672:15672'
+
+  track-stream:
+    container_name: "track-stream"
+    image: trcklst/track-stream-service
+    environment:
+      SERVER_PORT: 8050
+    ports:
+      - 8050:8050
+    depends_on:
+      - eureka
+      - tracks-db
+      - rabbitmq
+
+  track-upload:
+    container_name: "track-upload"
+    image: trcklst/track-upload-service
+    environment:
+      SERVER_PORT: 8040
+    ports:
+      - 8040:8040
+    depends_on:
+      - eureka
+      - tracks-db
+      - rabbitmq
+
+  party:
+    container_name: "party"
+    image: trcklst/party-service
+    environment:
+      SERVER_PORT: 8030
+    ports:
+      - 8030:8030
+    depends_on:
+      - eureka
+      - party-db
+      - rabbitmq
+
+  party-notifier:
+    container_name: "party-notifier"
+    image: trcklst/party-notifier-service
+    environment:
+      WS_SERVER_PORT: 3001
+    ports:
+      - 3001:3001
+    depends_on:
+      - notifier-db
+      - rabbitmq
+
   subscription:
     container_name: "subscription"
     image: trcklst/subscription:0.0.1-SNAPSHOT
@@ -77,8 +133,6 @@ services:
       MONGO_INITDB_DATABASE: user
       MONGO_INITDB_ROOT_USERNAME: user
       MONGO_INITDB_ROOT_PASSWORD: password
-    volumes:
-      - ./mongo-volume/user:/data/db
     ports:
       - "27017:27017"
 
@@ -91,7 +145,41 @@ services:
       MONGO_INITDB_DATABASE: subscription
       MONGO_INITDB_ROOT_USERNAME: user
       MONGO_INITDB_ROOT_PASSWORD: password
-    volumes:
-      - ./mongo-volume/subscription:/data/db
     ports:
       - "27018:27018"
+
+  tracks-db:
+    container_name: "tracks-db"
+    image: 'mongo'
+    restart: always
+    command: mongod --port 27019
+    environment:
+      - MONGO_INITDB_DATABASE=tracks
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=secret
+    ports:
+      - 27019:27019
+
+  party-db:
+    container_name: "party-db"
+    image: 'mongo'
+    restart: always
+    command: mongod --port 27020
+    environment:
+      - MONGO_INITDB_DATABASE=party
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=secret
+    ports:
+      - 27020:27020
+
+  notifier-db:
+    container_name: "notifier-db"
+    image: 'mongo'
+    restart: always
+    command: mongod --port 27021
+    environment:
+      - MONGO_INITDB_DATABASE=notifier
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=secret
+    ports:
+      - 27021:27021
