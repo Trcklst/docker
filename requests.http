@@ -76,21 +76,21 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJ1c
 ################ PARTY ######################################################
 
 ### Create
-POST http://localhost:8888/party
+POST http://localhost:8888/party/
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJ1c2VyMkBnbWFpbC5jb20iLCJzY29wZSI6WyJhbGwiXSwic3Vic2NyaXB0aW9uIjpudWxsLCJleHAiOjE1OTI0Njc2MzAsInVzZXJJZCI6MSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImY5YWIzMjZlLWVlNmYtNGJjYi1iMzMzLTA4N2NmNWNhZTkyMiIsImNsaWVudF9pZCI6InRyY2tsc3QifQ.O1KLvaTUIGSyWw_i8PCeoMxsyQOwCXjuYpf4S8ZqoG8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJ1c2VyMkBnbWFpbC5jb20iLCJzY29wZSI6WyJhbGwiXSwic3Vic2NyaXB0aW9uIjpudWxsLCJleHAiOjE1OTI2ODQ3OTEsInVzZXJJZCI6MSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6IjA0YzMxZDE2LTFmNGUtNDk0ZC1hNzE2LWY3YmI4M2EwMTBmNyIsImNsaWVudF9pZCI6InRyY2tsc3QifQ.2jtVWku2EcsY-3h53VR719sLlwHk-cgC5-jq8SSy9gE
 
 {
   "name": "Birthday"
 }
 
 ### GET
-GET http://localhost:8888/party/5ee202b270ef5e004d73602e
+GET http://localhost:8888/party/5eed2d844d3da8450d6aadfe
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJ1c2VyMkBnbWFpbC5jb20iLCJzY29wZSI6WyJhbGwiXSwic3Vic2NyaXB0aW9uIjpudWxsLCJleHAiOjE1OTI0NjY2ODIsInVzZXJJZCI6MSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImI4ZmNiOGQzLWE3ZjctNDNjZS1iNzkzLWE5OWQwNmVjOTJkMiIsImNsaWVudF9pZCI6InRyY2tsc3QifQ.XczJ-kxkt37uCL7nDl8Q5sn2vv6m6CtlAZ9zgmv4DJQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJ1c2VyMkBnbWFpbC5jb20iLCJzY29wZSI6WyJhbGwiXSwic3Vic2NyaXB0aW9uIjpudWxsLCJleHAiOjE1OTI2ODQ3OTEsInVzZXJJZCI6MSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6IjA0YzMxZDE2LTFmNGUtNDk0ZC1hNzE2LWY3YmI4M2EwMTBmNyIsImNsaWVudF9pZCI6InRyY2tsc3QifQ.2jtVWku2EcsY-3h53VR719sLlwHk-cgC5-jq8SSy9gE
 
 ### Delete
-DELETE http://localhost:8888/party/5ee5051ce5dc0a008488c8fe
+DELETE http://localhost:8888/party/5eed2d844d3da8450d6aadfe
 content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Njk2OSwicm9sZSI6MX0.bB7OfYgkR4Nkpzt-Al2B2CXPomKlrk1uyeVTN-2iM6M
 
@@ -106,9 +106,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Njk2OSwicm9sZ
 }
 
 ### Join
-PATCH http://localhost:8888/party/5ee54f11138d47002f10b52f/join
+PATCH http://localhost:8888/party/5eed2d844d3da8450d6aadfe/join
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Njk2OSwicm9sZSI6MX0.bB7OfYgkR4Nkpzt-Al2B2CXPomKlrk1uyeVTN-2iM6M
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJ1c2VyMkBnbWFpbC5jb20iLCJzY29wZSI6WyJhbGwiXSwic3Vic2NyaXB0aW9uIjpudWxsLCJleHAiOjE1OTI2NDQzNzQsInVzZXJJZCI6MSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6IjZiYzIwZDg3LTU2NDgtNDVjMS1hYjg2LWQ0NGY1MTQ3ODE4ZiIsImNsaWVudF9pZCI6InRyY2tsc3QifQ.-jbHIt6n3RfpT-j2VuN_G3YdvfsZvE8NEVSeV6Zgmtg
 
 ### leave
 PATCH http://localhost:8888/party/5ee54f11138d47002f10b52f/leave
