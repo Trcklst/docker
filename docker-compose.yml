@@ -1,7 +1,6 @@
-version: '3.1'
+version: "3.1"
 
 services:
-
   eureka:
     container_name: "eureka"
     image: trcklst/eureka:1.0.0
@@ -13,36 +12,36 @@ services:
 
   rabbitmq:
     container_name: "rabbitmq"
-    image: 'rabbitmq:3.6-management-alpine'
+    image: "rabbitmq:3.6-management-alpine"
     ports:
       # The standard AMQP protocol port
-      - '5672:5672'
+      - "5672:5672"
       # HTTP management UI
-      - '15672:15672'
+      - "15672:15672"
 
-  track-stream:
-    container_name: "track-stream"
-    image: trcklst/track-stream-service
-    environment:
-      SERVER_PORT: 8050
-    ports:
-      - 8050:8050
-    depends_on:
-      - eureka
-      - tracks-db
-      - rabbitmq
+  # track-stream:
+  #   container_name: "track-stream"
+  #   image: trcklst/track-stream-service
+  #   environment:
+  #     SERVER_PORT: 8050
+  #   ports:
+  #     - 8050:8050
+  #   depends_on:
+  #     - eureka
+  #     - tracks-db
+  #     - rabbitmq
 
-  track-upload:
-    container_name: "track-upload"
-    image: trcklst/track-upload-service
-    environment:
-      SERVER_PORT: 8040
-    ports:
-      - 8040:8040
-    depends_on:
-      - eureka
-      - tracks-db
-      - rabbitmq
+  # track-upload:
+  #   container_name: "track-upload"
+  #   image: trcklst/track-upload-service
+  #   environment:
+  #     SERVER_PORT: 8040
+  #   ports:
+  #     - 8040:8040
+  #   depends_on:
+  #     - eureka
+  #     - tracks-db
+  #     - rabbitmq
 
   party:
     container_name: "party"
@@ -160,21 +159,21 @@ services:
     ports:
       - "27018:27018"
 
-  tracks-db:
-    container_name: "tracks-db"
-    image: 'mongo'
-    restart: always
-    command: mongod --port 27019
-    environment:
-      - MONGO_INITDB_DATABASE=tracks
-      - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=secret
-    ports:
-      - 27019:27019
+  # tracks-db:
+  #   container_name: "tracks-db"
+  #   image: "mongo"
+  #   restart: always
+  #   command: mongod --port 27019
+  #   environment:
+  #     - MONGO_INITDB_DATABASE=tracks
+  #     - MONGO_INITDB_ROOT_USERNAME=root
+  #     - MONGO_INITDB_ROOT_PASSWORD=secret
+  #   ports:
+  #     - 27019:27019
 
   party-db:
     container_name: "party-db"
-    image: 'mongo'
+    image: "mongo"
     restart: always
     command: mongod --port 27020
     environment:
@@ -186,7 +185,7 @@ services:
 
   notifier-db:
     container_name: "notifier-db"
-    image: 'mongo'
+    image: "mongo"
     restart: always
     command: mongod --port 27021
     environment:
