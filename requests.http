@@ -1,3 +1,24 @@
+### FORGET PASSWORD / send ###
+
+POST http://localhost:8888/api/forget-password/send/
+Content-Type: application/json
+
+{
+  "email": "decultot.louis@gmail.com"
+}
+
+### FORGET PASSWORD / reset ###
+
+POST http://localhost:8888/api/forget-password/reset/
+Content-Type: application/json
+
+{
+  "token": "2-O8RpQ98sni6P78PaYxgDQf7joTzZ0yPkQnm5oMH3JvHzGkBcsVYTzFhGgOWDEumoXvm0fleKUlBg9c7M5u8TvIBVEvQQyMjKOphd66ObsqD8HB63dQrKJpbMnS90YeAL3VGXQAGEZSZPMW3YIKg5VmxwG6QN7dHttPdpBnKIKnoA5MQyVFjQSk7HmNj9GhnH2pWiRbTp",
+  "newPassword": "user"
+}
+
+
+
 #############################################################################
 #############################################################################
 ################ YOUTUBE SEARCH #############################################
@@ -19,7 +40,7 @@ POST http://localhost:8888/api/register
 Content-Type: application/json
 
 {
-  "username": "user2@gmail.com",
+  "username": "decultot.louis@gmail.com",
   "password": "user"
 }
 
@@ -31,7 +52,7 @@ POST http://localhost:8888/oauth/token
 Content-Type: application/x-www-form-urlencoded
 Authorization: Basic trcklst secret
 
-password=user&username=user2@gmail.com&grant_type=password
+password=user&username=decultot.louis@gmail.com&grant_type=password
 
 ###
 POST http://localhost:8888/oauth/check_token?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJ1c2VyMkBnbWFpbC5jb20iLCJzY29wZSI6WyJhbGwiXSwic3Vic2NyaXB0aW9uIjpudWxsLCJleHAiOjE1OTEwMDQ3MTMsInVzZXJJZCI6MSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6IjIzODMzY2I1LTczZTEtNDc4Yy04ZjI5LTkxYzMzMzBkZjdiOSIsImNsaWVudF9pZCI6InRyY2tsc3QifQ.22Fb5H-MFZi4QL8VhlcelKDODuO0tx_nRVcj_FGh0jc

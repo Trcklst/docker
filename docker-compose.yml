@@ -103,6 +103,18 @@ services:
       - user_db
       - eureka
 
+  forget-password:
+    container_name: "forget-password"
+    image: trcklst/forget-password:0.0.1-SNAPSHOT
+    environment:
+      SERVER_PORT: 8020
+      SPRING_PROFILE: docker
+    ports:
+      - "8020:8020"
+    depends_on:
+      - user_db
+      - eureka
+
   youtube-search:
     container_name: "youtube-search"
     image: trcklst/youtube-search:0.0.1-SNAPSHOT
