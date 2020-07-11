@@ -25,7 +25,7 @@ Content-Type: application/json
 
 POST http://localhost:8888/api/youtube/search
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJ1c2VyMkBnbWFpbC5jb20iLCJzY29wZSI6WyJhbGwiXSwic3Vic2NyaXB0aW9uIjpudWxsLCJleHAiOjE1OTEwNjU3MzIsInVzZXJJZCI6MSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImFhNTlmYWE1LTBkNjktNGNiNi1iYzMwLWIxOGM1MjU3MDI2MiIsImNsaWVudF9pZCI6InRyY2tsc3QifQ.SGjDXDGsk5_8zXnf-waCTy9CAQDhkd_PDeJF4lWB7WU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJkZWN1bHRvdC5sb3Vpc0BnbWFpbC5jb20iLCJzY29wZSI6WyJhbGwiXSwic3Vic2NyaXB0aW9uIjpudWxsLCJleHAiOjE1OTQ0NTYxNzMsInVzZXJJZCI6MSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImEwZTQ5NzQ1LWY0ZDQtNDA5OS1hZWY1LTA2Yjc4NWMxN2I5NSIsImVtYWlsIjoiZGVjdWx0b3QubG91aXNAZ21haWwuY29tIiwiY2xpZW50X2lkIjoidHJja2xzdCJ9.YhshZxAWkraQI1g3qfY81Is_q1TYfXgSGCt_Ip0uMJQ
 
 {
    "query": "l",
@@ -62,11 +62,16 @@ Content-Type: application/json
 #############################################################################
 ################ SUBSCRIPTION ###############################################
 
-POST http://localhost:8888/api/subscription
+GET http://localhost:8888/api/subscription/billing/
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJkZWN1bHRvdC5sb3Vpc0BnbWFpbC5jb20iLCJzY29wZSI6WyJhbGwiXSwic3Vic2NyaXB0aW9uIjpudWxsLCJleHAiOjE1OTQ1MDMyNDMsInVzZXJJZCI6MSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6Ijc5MjkwN2RiLTk4MWYtNDllMS1iMTY0LWQ3Mzk1YTZlMzdlYyIsImVtYWlsIjoiZGVjdWx0b3QubG91aXNAZ21haWwuY29tIiwiY2xpZW50X2lkIjoidHJja2xzdCJ9.xELgvxnD8ZERDlOyk6FsEPZUVcN2EesPGtmoTLlmW1A
+
+###
+POST http://localhost:8888/api/subscription/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJkZWN1bHRvdC5sb3Vpc0BnbWFpbC5jb20iLCJzY29wZSI6WyJhbGwiXSwic3Vic2NyaXB0aW9uIjpudWxsLCJleHAiOjE1OTQ1MDMyNDMsInVzZXJJZCI6MSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6Ijc5MjkwN2RiLTk4MWYtNDllMS1iMTY0LWQ3Mzk1YTZlMzdlYyIsImVtYWlsIjoiZGVjdWx0b3QubG91aXNAZ21haWwuY29tIiwiY2xpZW50X2lkIjoidHJja2xzdCJ9.xELgvxnD8ZERDlOyk6FsEPZUVcN2EesPGtmoTLlmW1A
 
 {
-  "userId": 1,
   "creditCard": {
     "number": "4242424242424242",
     "expirationMonth": 2,
