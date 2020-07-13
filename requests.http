@@ -13,8 +13,17 @@ POST http://localhost:8888/api/forget-password/reset/
 Content-Type: application/json
 
 {
-  "token": "2-O8RpQ98sni6P78PaYxgDQf7joTzZ0yPkQnm5oMH3JvHzGkBcsVYTzFhGgOWDEumoXvm0fleKUlBg9c7M5u8TvIBVEvQQyMjKOphd66ObsqD8HB63dQrKJpbMnS90YeAL3VGXQAGEZSZPMW3YIKg5VmxwG6QN7dHttPdpBnKIKnoA5MQyVFjQSk7HmNj9GhnH2pWiRbTp",
-  "newPassword": "user"
+  "token": "1-Lk7IZu8mRAioIMScSrX0otnKocd2boQEzS5EJP36TrM86nQev31wcEK6z4EGoX1IoJLvNPqclhzfzHks1vY8ZAbRDgij5s4zwZKODoBjZH5WlYFq3RP53QFhb87txyuiq6GJEpwJnDJ1eD1Q3qJSiaqVlOps7nTpQl1QeZaVwmzifMcNKXkIrVBN7LMivICbCbLvyRIW",
+  "newPassword": "lala"
+}
+
+###
+PATCH http://localhost:8888/api/password/update/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJkZWN1bHRvdC5sb3Vpc0BnbWFpbC5jb20iLCJzY29wZSI6WyJhbGwiXSwic3Vic2NyaXB0aW9uIjpudWxsLCJleHAiOjE1OTQ2NzU0NzAsInVzZXJJZCI6MSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImZjMDU0YWM5LWZkZGQtNDZmYS05Yjg3LTRkOWJiYTNmYTdhYiIsImVtYWlsIjoiZGVjdWx0b3QubG91aXNAZ21haWwuY29tIiwiY2xpZW50X2lkIjoidHJja2xzdCJ9.8sXB-cfCE0TmKAPWMF4dKszJhvNsyeYptFvzV6z0D_0
+
+{
+   "newPassword": "lala"
 }
 
 
